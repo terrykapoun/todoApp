@@ -1,0 +1,6 @@
+
+<br>Task:<input type="text" [(ngModel)]="todo.task"><br>
+Username: <input type="text" [(ngModel)]="todo.username"><br>
+<button (click)="addTodo()">Add Todo</button>
+<br>
+<app-todo-list [todos]="todos" [isUserPage]="false"></app-todo-list>

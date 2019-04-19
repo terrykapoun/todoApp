@@ -1,0 +1,33 @@
+<h2>Filer here</h2>
+  <input type="text" [(ngModel)]="searchString"> 
+   <br>
+  <h3>Sort here</h3>
+  <select [(ngModel)]="sortString">
+      <option value="id">Id</option>
+    <option *ngIf="!isUserPage" value="username">Username</option>
+    <option value="task">Task</option>
+    
+  </select>
+
+  <div *ngFor="let td of todos | filter:searchString | sort:sortString" [class.incomplete]="!td.competed">
+    id: {{td.id}} Name: {{td.task}}
+    Username: <a [routerLink]="['/user/'+td.username]">{{td.username}}</a> Completed: {{td.completed}}
+  <button *ngIf="isUserPage" (click)="deleteTodo(td.id)">Delete This Todo!</button> 
+</div>
+
+
+<!-- <h2> Filter here</h2>
+<input type="text" [(ngModel)]="searchString">
+<br>
+<h3>Sort Here</h3>
+<select [(ngModel)]="sortString">
+  <option value="id">Id</option>
+  <option *ngIf="!isUserPage" value="username">Username</option>
+<option value="task">Task</option>
+</select>
+
+<div *ngFor="let td of todos | filter:searchString | sort:sortString" [class.incomplete]="!td.completed">
+id: {{td.id}} Name: {{td.task}} 
+Username: <a [routerLink]="['/user/'+td.username]">{{td.username}}</a> Completed: {{td.completed}}
+<button *ngIf="isUserPage" (click)="deleteTodo(td.id)">Delete This Todo!!!!!!!!!!</button>
+</div> -->
